@@ -1,0 +1,170 @@
+/* Reset and base styles */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; /* Default dark background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #f4f7f6; /* Light background */
+  }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* App specific styles */
+.App {
+  width: 100%;
+  max-width: 1280px; /* Limit max width */
+  margin: 0 auto; /* Center the app */
+  padding: 2rem;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34; /* Keep dark header for contrast */
+  padding: 20px;
+  color: white;
+  margin-bottom: 30px;
+  border-radius: 8px; /* Add some rounding */
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.stock-card {
+  background-color: #fff; /* White background for cards in light mode */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 180px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  color: #333; /* Default text color for cards */
+}
+
+@media (prefers-color-scheme: dark) {
+  .stock-card {
+    background-color: #1a1a1a; /* Darker background for cards in dark mode */
+    border-color: #555;
+    color: rgba(255, 255, 255, 0.87); /* Light text for dark mode cards */
+  }
+}
+
+
+.stock-card:hover {
+  transform: translateY(-5px);
+}
+
+.stock-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #0052cc; /* A blue color for the symbol */
+}
+
+@media (prefers-color-scheme: dark) {
+  .stock-card h2 {
+     color: #62a0ea; /* Lighter blue for dark mode */
+  }
+}
+
+.stock-card .price {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #172b4d; /* Darker color for price */
+}
+
+@media (prefers-color-scheme: dark) {
+  .stock-card .price {
+     color: #eee; /* Lighter price for dark mode */
+  }
+}
+
+.stock-card .change {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.stock-card .change.positive {
+  color: #00875a; /* Green for positive change */
+}
+
+.stock-card .change.negative {
+  color: #de350b; /* Red for negative change */
+}
+
+/* Error styling */
+.stock-card.error {
+  background-color: #ffebe6; /* Light red background for errors */
+  border-color: #ffbdad;
+}
+
+.stock-card.error h2 {
+  color: #bf2600; /* Darker red for symbol in error card */
+}
+
+.stock-card.error p {
+  color: #bf2600;
+  font-size: 0.9em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stock-card.error {
+    background-color: #4d1f1f; /* Dark red background for errors in dark mode */
+    border-color: #a63b3b;
+  }
+   .stock-card.error h2, .stock-card.error p {
+     color: #ffbdbd; /* Lighter red text for dark mode errors */
+   }
+}
+
+
+.error-message {
+  color: #de350b;
+  font-weight: bold;
+  margin: 20px auto; /* Center horizontally */
+  padding: 15px;
+  background-color: #ffebe6;
+  border: 1px solid #ffbdad;
+  border-radius: 4px;
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .error-message {
+    color: #ffbdbd;
+    background-color: #4d1f1f;
+    border-color: #a63b3b;
+  }
+}
